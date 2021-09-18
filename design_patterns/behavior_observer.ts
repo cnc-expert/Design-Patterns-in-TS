@@ -1,4 +1,8 @@
 // Behavioral design pattern "Observer"
+//
+// An object, named the subject, maintains a list of its dependents,
+// called observers, and notifies them automatically of any state changes,
+// usually by calling one of their methods.
 
 class Subscriber {
     name: string;
