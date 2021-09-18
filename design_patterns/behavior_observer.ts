@@ -32,7 +32,9 @@ class News {
     }
 }
 
+// ----- Usage -----
 console.clear();
+
 const Max = new Subscriber("Max");
 const Anonym = new Subscriber();
 const news = new News();

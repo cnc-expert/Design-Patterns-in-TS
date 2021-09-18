@@ -45,17 +45,12 @@ class Driver {
 	}
 }
 
+// ----- Usage -----
 console.clear();
 
 const driver = new Driver();
-const engine = new Engine();
-console.log(engine);
-
+const engine = new Engine();  console.log(engine);
 const startEngine = new CommandEngineStart(engine);
 const stopEngine = new CommandEngineStop(engine);
-
-driver.doThis(startEngine);
-console.log(engine);
-
-driver.doThis(stopEngine);
-console.log(engine);
+driver.doThis(startEngine);   console.log(engine);
+driver.doThis(stopEngine);    console.log(engine);

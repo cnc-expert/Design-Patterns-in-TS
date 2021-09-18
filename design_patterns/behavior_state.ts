@@ -57,6 +57,7 @@ class Order {
     }
 }
 
+// ----- Usage -----
 console.clear();
 
 const ord = new Order();
