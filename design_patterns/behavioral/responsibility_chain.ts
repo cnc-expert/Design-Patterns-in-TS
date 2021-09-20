@@ -10,6 +10,7 @@ class Account {
 	name: string = "no name";
 	next: Account | null = null;
 	balance: number = 0;
+	
 	setNext(next: Account) {
 		this.next = next;
 		return this;
