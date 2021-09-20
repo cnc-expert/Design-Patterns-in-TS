@@ -13,7 +13,7 @@ const platinumStrategy: BillingStrategy = (amount: number) => 0.8*amount;
 
 class CustomerBill {
 	#strategy: BillingStrategy;
-	#amount: number;
+	#amount: number = Infinity;
 	constructor(strategy: BillingStrategy) {
 		this.#strategy = strategy;
 	}
@@ -31,4 +31,5 @@ console.clear();
 const bill = new CustomerBill(premiumStrategy);
 bill.setAmount(1100000);
 const cost = bill.checkout();
+
 console.log(cost);
