@@ -6,9 +6,9 @@
 // communicate through the mediator. This reduces the dependencies between
 // communicating objects, thereby reducing coupling.
 
-class SomeStorage {
+class StorageWithNotify {
 	#val: any;
-	setVal(val: any, medi: Mediator, name: string) {
+	setVal(val: any, medi: MediatorWithNofify, name: string) {
 		const oldVal = this.#val;
 		this.#val = val;
 		if (oldVal != val) medi.notifyObservers(name);
@@ -18,12 +18,12 @@ class SomeStorage {
 	}
 }
 
-class Mediator {
-	#storages: Map<string, SomeStorage> = new Map();
+class MediatorWithNofify {
+	#storages: Map<string, StorageWithNotify> = new Map();
 	#observers = new Array<Function>();
 
 	setValue(name: string, val: any) {
-		if (!this.#storages.has(name)) this.#storages.set(name, new SomeStorage());
+		if (!this.#storages.has(name)) this.#storages.set(name, new StorageWithNotify());
 		this.#storages.get(name)?.setVal(val, this, name);
 	}
 
@@ -45,11 +45,11 @@ class Mediator {
 // ----- Usage -----
 console.clear();
 
-const medi = new Mediator();
-medi.setValue("Alex", 34);
-medi.setValue("Dash", 32);
-console.log("Alex is ", medi.getValue("Alex"));
-medi.addObserver("Dash", () => {
-	console.log("Value for Dash has changed to ", medi.getValue("Dash"));
+const media = new MediatorWithNofify();
+media.setValue("Alex", 34);
+media.setValue("Dash", 32);
+console.log("Alex is ", media.getValue("Alex"));
+media.addObserver("Dash", () => {
+	console.log("Value for Dash has changed to ", media.getValue("Dash"));
 });
-medi.setValue("Dash", 18);
+media.setValue("Dash", 18);

@@ -11,7 +11,7 @@ abstract class CarBuilder {
 	abstract installChassis(): void;
 	abstract addElectronics(): void;
 	abstract collectAccessories(): void;
-	build() {
+	build() { // Template method
 		this.addEngine();
 		this.installChassis();
 		this.addElectronics();
@@ -35,25 +35,24 @@ class BumerBuilder extends CarBuilder {
 }
 
 class TazBuilder extends CarBuilder {
-		addEngine(): void {
-			console.log("Add weak motor");
-		}
-		installChassis(): void {
-			console.log("Install hard chassis");
-		}
-		addElectronics(): void {
-			console.log("Add passed century electronics");
-		}
-		collectAccessories(): void {
-			console.log("No accessories available");
-		}
+	addEngine(): void {
+		console.log("Add weak motor");
+	}
+	installChassis(): void {
+		console.log("Install hard chassis");
+	}
+	addElectronics(): void {
+		console.log("Add passed century electronics");
+	}
+	collectAccessories(): void {
+		console.log("No accessories available");
 	}
 }
 
 // ----- Usage -----
 console.clear();
 
-const bumer = new BumerBuilder();
-const taz = new TazBuilder();
-bumer.build();
-taz.build();
+const bumerBuilder = new BumerBuilder();
+const tazBuilder = new TazBuilder();
+bumerBuilder.build();
+tazBuilder.build();
