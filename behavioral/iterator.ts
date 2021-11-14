@@ -43,8 +43,12 @@ class CustomRange {
 		this.step = step;
 	}
 
+	// Iterable:
+	// returns an iterator (object with "next" method)
 	[Symbol.iterator] = () => this;
 
+	// Iterator:
+	// has a method "next" = () => { value: any; done: boolean }
 	next() {
 		const value = this.index;
 		this.index += this.step;

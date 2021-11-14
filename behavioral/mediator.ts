@@ -20,8 +20,8 @@ class Mediator {
 	#storages: Map<string, SomeStorage> = new Map();
 
 	setValue(name: string, val: any) {
-		const storage = this.#storages.get(name) ?? new SomeStorage();
-		storage.setVal(val);
+		if (!this.#storages.has(name)) this.#storages.set(name, new SomeStorage());
+		this.#storages.get(name)?.setVal(val);
 	}
 
 	getValue(name: string) {
@@ -35,4 +35,4 @@ console.clear();
 const medi = new Mediator();
 medi.setValue("Alex", 34);
 medi.setValue("Dash", 32);
-console.log("Alex is ", medi.getValue("Alex"));
+console.log("Alex is", medi.getValue("Alex"));

@@ -48,8 +48,8 @@ console.clear();
 const media = new MediatorWithNofify();
 media.setValue("Alex", 34);
 media.setValue("Dash", 32);
-console.log("Alex is ", media.getValue("Alex"));
+console.log("Alex is", media.getValue("Alex"));
 media.addObserver("Dash", () => {
-	console.log("Value for Dash has changed to ", media.getValue("Dash"));
+	console.log("Value for Dash has changed to", media.getValue("Dash"));
 });
 media.setValue("Dash", 18);
