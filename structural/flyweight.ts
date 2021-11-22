@@ -32,5 +32,6 @@ const factory = new CarFactory();
 const tazik = factory.create("vaz");
 const bum = factory.create("bumer");
 const tazz = factory.create("vaz");
+
 console.log(tazz == tazik);
 console.log(factory.getCarsJson());
