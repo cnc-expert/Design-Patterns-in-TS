@@ -16,12 +16,13 @@ class ChuckWithIndependentJaws {
 	}
 }
 
-interface Operator {
+// Target
+interface Chuck {
 	clampWorkpiece(): void;
 }
 
 // Object adapter
-class ChuckAdapter1 implements Operator {
+class ChuckAdapter1 implements Chuck {
 	constructor(private chuck: SelfCenteringChuck) {}
 
 	clampWorkpiece() {
@@ -30,7 +31,8 @@ class ChuckAdapter1 implements Operator {
 }
 
 // Class adapter
-class ChuckAdapter2 extends ChuckWithIndependentJaws implements Operator {
+class ChuckAdapter2 extends ChuckWithIndependentJaws implements Chuck {
+
 	clampWorkpiece() {
 		this.moveJaw(1);
 		this.moveJaw(2);
@@ -42,11 +44,8 @@ class ChuckAdapter2 extends ChuckWithIndependentJaws implements Operator {
 // ----- Usage -----
 console.clear();
 
+const c1: Chuck = new ChuckAdapter1(new SelfCenteringChuck());
+c1.clampWorkpiece();
 
-const chuck1 = new SelfCenteringChuck();
-const operator1: Operator = new ChuckAdapter1(chuck1);
-operator1.clampWorkpiece();
-
-const chuck2 = new ChuckWithIndependentJaws();
-const operator2: Operator = new ChuckAdapter2();
-operator2.clampWorkpiece();
+const c2: Chuck = new ChuckAdapter2();
+c2.clampWorkpiece();
