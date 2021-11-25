@@ -22,7 +22,7 @@ class Door implements IDoor {
 		console.log("Door is open");
 	}
 	close() {
-		console.log("Door is closed")
+		console.log("Door is closed");
 	}
 }
 
